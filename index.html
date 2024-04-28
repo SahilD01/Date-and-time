@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    body{
+        background: #355C7D;  
+background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  
+background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D); 
+
+    }
+
+    
+        /* width: 500px;
+            background-color: rgb(253, 253, 253);
+            display: block;
+            margin: 40px auto;
+            padding: 50px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);  
+            flex-direction: column; 
+            text-align: center;  */
+
+      /* text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 48px;
+      margin-top: 40px;
+      background-color: aliceblue;
+      width: 100vh;
+      height: 80vh; */
+    
+    .container {
+      /* margin-top: 50px;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      font-size: 25px; */
+      width: 400px;
+            background-color: rgb(253, 253, 253);
+            display: block;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);  
+            flex-direction: column; 
+           justify-content: center;
+            font-size: 25px;
+    }
+    .container input {
+      margin: 20px;
+    }
+
+    .container label {
+      margin: 30px;
+    }
+    .container button {
+      margin: 20px;
+      margin-left: 40%;
+      background-color: rgb(0, 132, 255);
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 15px;
+      color: aliceblue;
+    }
+    .result{
+        text-align: center;
+    }
+  </style>
+  <body>
+   
+    
+
+    <div class="container">
+      <label for="date1">Enter Date :</label>
+      <input type="date" id="date1" />
+      <br>
+      <label for="date2">Enter Date :</label>
+      <input type="date" id="date2" />
+        <br>
+      <button onclick="calculator()">calculate</button>
+   
+    <p class="result" id="result"></p>
+</div>
+    <script>
+      const date = new Date();
+      console.log(date);
+
+      const month = date.getMonth();
+      console.log(month);
+
+      const year = date.getFullYear();
+      console.log(year);
+
+      const day = date.getDate();
+      console.log(day);
+
+      const dayofweek = date.getDay();
+      console.log(dayofweek);
+
+      
+
+      function calculator() {
+        const input1 = document.getElementById("date1").value;
+        const date1 = new Date(input1);
+
+        const input2 = document.getElementById("date2").value;
+        const date2 = new Date(input2);
+
+        let age = date1.getFullYear() - date2.getFullYear();
+
+        const monthdiff = date1.getMonth() - date2.getMonth();
+
+        console.log(monthdiff);
+
+        if (
+          monthdiff < 0 ||
+          (monthdiff === 0 && date1.getDate() < date2.getDate())
+        ) {
+          age--;
+        }
+
+        const result = document.getElementById("result");
+        result.innerText = `Difference is ${age}`;
+      }
+    </script>
+  </body>
+</html>
